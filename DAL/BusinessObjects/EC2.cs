@@ -2,10 +2,10 @@
 
 namespace DAL.BusinessObjects
 {
-    public class EntityClasses2 : DSEntityBase<EntityClasses2>
+    public class EC2 : DSEntityBase<EC2>
     {
         int _intProperty;
-        public EntityClasses2(Session session) : base(session) { }
+        public EC2(Session session) : base(session) { }
 
         public string StringProperty { get; set; }
 

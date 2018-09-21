@@ -1,13 +1,15 @@
-﻿using DAL.BusinessObjects;
+﻿using System.Collections.Generic;
+using DAL.BusinessObjects;
 
 namespace BLL
 {
     public interface IPersistentClasses2Bl
     {
-        void CalculatePremium(EntityClasses2 bo);
-        EntityClasses2 GetFromDb(int key);
-        void SaveObject(EntityClasses2 bo);
+        void CalculatePremium(EC2 bo);
+        //EC2 GetFromDb(int key);
+        //IEnumerable<EC2> GetAllFromDb();
+        void SaveObject(EC2 bo);
 
-        EntityClasses2 CreateNewObject();
+        //EC2 CreateNewObject();
     }
 }

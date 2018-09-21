@@ -7,7 +7,7 @@ namespace DAL.BusinessObjects
     // ReSharper disable once InconsistentNaming
     public class DSEntityBase<T> : XPLiteObject where T : DSEntityBase<T>
     {
-        [Key]
+        [Key(true)]
         public int Oid { get; set; }
         public static event Action<T> OnSavingEvent;
         public static event Action<T, string, object, object> OnChangedEvent;

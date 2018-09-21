@@ -69,7 +69,7 @@ namespace DXApplication1.Module
             InitializeComponent();
             BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction;
 
-            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(EntityClasses2).Assembly, t => !t.ContainsGenericParameters));
+            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(EC2).Assembly, t => !t.ContainsGenericParameters));
 
             //var x = new PersistentClasses2Bl(new PCRepository());
             //var y = new PC3Bl(new PCRepository());
@@ -122,8 +122,8 @@ namespace DXApplication1.Module
             base.CustomizeTypesInfo(typesInfo);
             CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
 
-            typesInfo.FindTypeInfo(typeof(EntityClasses2)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(EntityClasses2Child)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(EC2)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(Ec2Child)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(PC3)).AddAttribute(new DefaultClassOptionsAttribute());
         }
     }

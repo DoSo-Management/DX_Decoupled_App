@@ -1,12 +1,14 @@
-﻿using DAL.BusinessObjects;
+﻿using System.Collections.Generic;
+using DAL.BusinessObjects;
 
 namespace BLL
 {
     // ReSharper disable once InconsistentNaming
     public interface IPCRepository
     {
-        EntityClasses2 GetFromDb(int key);
-        void SaveObject(EntityClasses2 bo);
-        EntityClasses2 CreateNewObject();
+        EC2 GetFromDb(int key);
+        IEnumerable<EC2> GetAllFromDb();
+        void SaveObject(EC2 bo);
+        EC2 CreateNewObject();
     }
 }

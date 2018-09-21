@@ -16,7 +16,7 @@ namespace DXApplication1.Module.Controllers
     //    public static Func<TFrom, TTo> Resolve;// = t => {};
     //}
 
-    public class SampleController : ObjectViewController<ObjectView, EntityClasses2>
+    public class SampleController : ObjectViewController<ObjectView, EC2>
     {
         public SampleController()
         {

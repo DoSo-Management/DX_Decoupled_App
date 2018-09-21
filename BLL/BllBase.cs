@@ -20,7 +20,7 @@ namespace BLL
         //        uow.GetObjectByKey<T>(id);
         //        uow.CommitChanges();
 
-        //        uow.Query<EntityClasses2>().Where(t => t.IntProperty == 5);
+        //        uow.Query<EC2>().Where(t => t.IntProperty == 5);
         //    }
         //}
 

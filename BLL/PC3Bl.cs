@@ -2,7 +2,7 @@
 
 namespace BLL
 {
-    public class Pc3Bl : BllBase<PC3>// where T : EntityClasses2/*, ILogicSpecificTo*/
+    public class Pc3Bl : BllBase<PC3>// where T : EC2/*, ILogicSpecificTo*/
     {
         readonly IPCRepository _pcRepository;
 
@@ -11,16 +11,16 @@ namespace BLL
             _pcRepository = pcRepository;
         }
 
-        public virtual void CalculatePremium(EntityClasses2 bo) => bo.IntProperty = bo.IntProperty / 2;
-        //public virtual void CalculatePremium(EntityClasses2 bo) => bo.IntProperty = bo.IntProperty / 2;
+        public virtual void CalculatePremium(EC2 bo) => bo.IntProperty = bo.IntProperty / 2;
+        //public virtual void CalculatePremium(EC2 bo) => bo.IntProperty = bo.IntProperty / 2;
 
-        public void SaveObject(EntityClasses2 bo) => _pcRepository.SaveObject(bo);
-        public EntityClasses2 CreateNewObject()
+        public void SaveObject(EC2 bo) => _pcRepository.SaveObject(bo);
+        public EC2 CreateNewObject()
         {
             return _pcRepository.CreateNewObject();
         }
 
-        public EntityClasses2 GetFromDb(int key)
+        public EC2 GetFromDb(int key)
         {
             return _pcRepository.GetFromDb(key);
         }
