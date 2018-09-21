@@ -37,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BllBase.cs" />
+    <Compile Include="IApiMapper.cs" />
+    <Compile Include="IPCRepository.cs" />
+    <Compile Include="IPersistentClasses2Bl.cs" />
     <Compile Include="PersistentClasses2Bl.cs" />
     <Compile Include="PersistentClasses3Bl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

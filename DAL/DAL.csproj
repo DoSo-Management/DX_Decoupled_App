@@ -36,7 +36,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjects\PersistentClasses1.cs" />
+    <Compile Include="BusinessObjects\DSEntityBase.cs" />
+    <Compile Include="BusinessObjects\EntityClasses2.cs" />
+    <Compile Include="BusinessObjects\EntityClasses2Child.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

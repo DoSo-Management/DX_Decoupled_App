@@ -3,31 +3,34 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using System.Collections.Generic;
 using System.Linq;
-using ClassLibrary2.BusinessObjects;
 using ClassLibrary3;
+using DAL.BusinessObjects;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Xpo;
+using RepoServices;
 
 namespace DXApplication1.Module
 {
     public sealed partial class DXApplication1Module : ModuleBase
     {
         readonly Dictionary<Type, Type> _type2BllMap = new Dictionary<Type, Type>();
-        void DSPersistentBase_OnObjectCreated(DSPersistentBase obj)
-        {
-            if (_type2BllMap.ContainsKey(obj.GetType()))
-                Activator.CreateInstance(_type2BllMap[obj.GetType()], obj);
-        }
+        //void DSPersistentBase_OnObjectCreated(DSEntityBase obj)
+        //{
+        //    if (_type2BllMap.ContainsKey(obj.GetType()))
+        //        Activator.CreateInstance(_type2BllMap[obj.GetType()], obj);
+        //}
         public DXApplication1Module()
         {
             InitializeComponent();
             BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction;
 
-            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(PersistentClasses2).Assembly, t => true));
+            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(EntityClasses2).Assembly, t => !t.ContainsGenericParameters));
 
-            DSPersistentBase.OnObjectCreated += DSPersistentBase_OnObjectCreated;
+            var x = new PersistentClasses2Bl(new PCRepository());
+            var y = new PC3Bl(new PCRepository());
+            //DSEntityBase.OnObjectCreated += DSPersistentBase_OnObjectCreated;
 
             var result = typeof(BllBase<>).Assembly
                 .GetTypes()
@@ -53,8 +56,9 @@ namespace DXApplication1.Module
             base.CustomizeTypesInfo(typesInfo);
             CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
 
-            typesInfo.FindTypeInfo(typeof(PersistentClasses2)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(PersistentClasses4)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(EntityClasses2)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(EntityClasses2Child)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(PC3)).AddAttribute(new DefaultClassOptionsAttribute());
         }
     }
 }
