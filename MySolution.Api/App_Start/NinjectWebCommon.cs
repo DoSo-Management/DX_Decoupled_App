@@ -1,5 +1,4 @@
-﻿using ClassLibrary3;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using MySolution.Api.App_Start;
 using Ninject;
 using Ninject.Web.Common;
@@ -9,6 +8,8 @@ using System;
 using System.Configuration;
 using System.Web;
 using System.Web.Http;
+using BLL;
+using ApiViewModelMapper;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]

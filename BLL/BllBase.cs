@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using DAL.BusinessObjects;
-using DevExpress.Xpo;
 
-namespace ClassLibrary3
+namespace BLL
 {
-    public abstract class BllBase<T> where T : DSEntityBase<T>
+    public abstract class BllBase<T> : IBllBase where T : DSEntityBase<T>
     {
         //readonly List<BllBase<T>> _blls = new List<BllBase<T>>();
+        public virtual Type BoType => typeof(T);
         protected BllBase()
         {
             DSEntityBase<T>.OnSavingEvent += OnSavingHandler;
@@ -40,5 +39,10 @@ namespace ClassLibrary3
             //}
         }
         public void OnSavingHandler(T bo) => OnSaving((T)bo);
+    }
+
+    public interface IBllBase
+    {
+        Type BoType { get; }// => typeof(T);
     }
 }

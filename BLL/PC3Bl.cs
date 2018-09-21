@@ -2,16 +2,11 @@
 
 namespace BLL
 {
-
-    //public static class a
-    //{
-    //    public static T GetBl<T>() => Activator.CreateInstance<T>();
-    //}
-
-    public class PersistentClasses2Bl : BllBase<EntityClasses2>, IPersistentClasses2Bl// where T : EntityClasses2/*, ILogicSpecificTo*/
+    public class Pc3Bl : BllBase<PC3>// where T : EntityClasses2/*, ILogicSpecificTo*/
     {
         readonly IPCRepository _pcRepository;
-        public PersistentClasses2Bl(IPCRepository pcRepository)
+
+        public Pc3Bl(IPCRepository pcRepository)
         {
             _pcRepository = pcRepository;
         }
@@ -30,7 +25,7 @@ namespace BLL
             return _pcRepository.GetFromDb(key);
         }
 
-        public override void OnSaving(EntityClasses2 bo)
+        public override void OnSaving(PC3 bo)
         {
             base.OnSaving(bo);
         }

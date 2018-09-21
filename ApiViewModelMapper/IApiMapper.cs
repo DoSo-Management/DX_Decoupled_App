@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ClassLibrary3
+namespace ApiViewModelMapper
 {
     public interface IApiMapper
     {

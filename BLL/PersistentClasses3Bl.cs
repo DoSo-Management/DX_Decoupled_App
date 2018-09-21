@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary3
+﻿namespace BLL
 {
     public class PersistentClasses3Bl// : BllBase<PersistentClasses4>
     {

@@ -7,9 +7,9 @@
     <ProjectGuid>{C7216F2D-84F4-4215-AFD9-5EA70727A126}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary3</RootNamespace>
-    <AssemblyName>ClassLibrary3</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -31,16 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassLibrary3, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MySolution.Api\Bin\ClassLibrary3.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BllBase.cs" />
-    <Compile Include="IApiMapper.cs" />
     <Compile Include="IPCRepository.cs" />
     <Compile Include="IPersistentClasses2Bl.cs" />
+    <Compile Include="PC3Bl.cs" />
     <Compile Include="PersistentClasses2Bl.cs" />
+    <Compile Include="PersistentClasses2ChildBl.cs" />
     <Compile Include="PersistentClasses3Bl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

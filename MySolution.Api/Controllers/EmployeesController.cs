@@ -1,6 +1,6 @@
-﻿using ClassLibrary3;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using ApiViewModelMapper;
 
 namespace MySolution.Api.Controllers
 {
@@ -34,7 +34,7 @@ namespace MySolution.Api.Controllers
 
         // PUT api/<controller>/5
         public TestViewModel Put([FromBody]TestViewModel value)
-        {
+    {
             return _employeeRepository.AddObject(value);
         }
 

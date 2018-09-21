@@ -269,6 +269,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiViewModelMapper\ApiViewModelMapper.csproj">
+      <Project>{B1CCB2D1-C99F-4EB4-A666-3F001FD15854}</Project>
+      <Name>ApiViewModelMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{c7216f2d-84f4-4215-afd9-5ea70727a126}</Project>
       <Name>BLL</Name>

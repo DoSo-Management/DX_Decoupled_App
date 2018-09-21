@@ -1,4 +1,4 @@
-﻿using ClassLibrary3;
+﻿using BLL;
 using DAL.BusinessObjects;
 using DevExpress.Xpo;
 

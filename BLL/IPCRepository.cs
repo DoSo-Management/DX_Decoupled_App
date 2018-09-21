@@ -1,7 +1,8 @@
 ﻿using DAL.BusinessObjects;
 
-namespace ClassLibrary3
+namespace BLL
 {
+    // ReSharper disable once InconsistentNaming
     public interface IPCRepository
     {
         EntityClasses2 GetFromDb(int key);
