@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ApiViewModelMapper;
+using BLL;
 
-namespace BLL
+namespace ApiViewModelMapper
 {
     public class ApiMapper : IApiMapper
     {
@@ -30,7 +30,7 @@ namespace BLL
 
         public IEnumerable<TestViewModel> GetAllObjectFromDatabase()
         {
-            return new List<TestViewModel> { GetObjectFromDatabase(4) };
+            return new List<TestViewModel> { GetObjectFromDatabase(230) };
         }
 
         public TestViewModel AddObject(TestViewModel viewModel)
