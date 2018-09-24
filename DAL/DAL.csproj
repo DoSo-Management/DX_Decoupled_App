@@ -37,10 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\DSEntityBase.cs" />
-    <Compile Include="BusinessObjects\EC2.cs" />
-    <Compile Include="BusinessObjects\Ec2Child.cs" />
-    <Compile Include="BusinessObjects\PC3.cs" />
+    <Compile Include="BusinessObjects\Policy.cs" />
+    <Compile Include="BusinessObjects\PolicyChld.cs" />
+    <Compile Include="BusinessObjects\Client.cs" />
+    <Compile Include="ValueObjects\PolicyPremium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

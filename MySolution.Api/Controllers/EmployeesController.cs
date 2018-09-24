@@ -34,7 +34,7 @@ namespace MySolution.Api.Controllers
 
         // PUT api/<controller>/5
         public TestViewModel Put([FromBody]TestViewModel value)
-    {
+        {
             return _employeeRepository.AddObject(value);
         }
 

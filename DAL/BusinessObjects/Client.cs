@@ -3,9 +3,9 @@
 namespace DAL.BusinessObjects
 {
     // ReSharper disable once InconsistentNaming
-    public class PC3 : DSEntityBase<PC3>
+    public class Client : DSEntityBase<Client>
     {
-        public PC3(Session session) : base(session) { }
+        public Client(Session session) : base(session) { }
 
         public string StringProperty { get; set; }
         public int IntProperty { get; set; }

@@ -1,38 +1,24 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using DAL.BusinessObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
-using RepoServices;
 
 namespace DXApplication1.Module.Controllers
 {
-
-    // ReSharper disable once InconsistentNaming
-    //public class DI<TFrom, TTo>
-    //{
-    //    public static void SetResolver(Func<TFrom, TTo> action) => Resolve += action;
-    //    public static Func<TFrom, TTo> Resolve;// = t => {};
-    //}
-
-    public class SampleController : ObjectViewController<ObjectView, EC2>
+    public class SampleController : ObjectViewController<ObjectView, Policy>
     {
         public SampleController()
         {
-            var action = new SimpleAction(this, "hi", PredefinedCategory.View);
+            var action = new SimpleAction(this, "SIMPLE_ACTION", PredefinedCategory.View);
             action.Execute += ActionOnExecute;
         }
 
         void ActionOnExecute(object sender, SimpleActionExecuteEventArgs simpleActionExecuteEventArgs)
         {
-            var bl = ViewCurrentObject.Bl<PersistentClasses2Bl>();// _persistentClasses2Bl(ViewCurrentObject.GetType());
+            var bl = ViewCurrentObject.Bl<PolicyBl>();
 
             bl.CalculatePremium(ViewCurrentObject);
-
-            bl.SaveObject(ViewCurrentObject);
         }
     }
-
-
 }

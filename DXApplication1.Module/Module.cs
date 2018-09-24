@@ -43,7 +43,7 @@ namespace DXApplication1.Module
 
             //if (!DXApplication1Module._type2BllMap.ContainsKey(type))
             //{
-            //    var blInstance = (IBllBase)Activator.CreateInstance(typeof(T), new PCRepository());
+            //    var blInstance = (IBllBase)Activator.CreateInstance(typeof(T), new DBRepository());
             //    DXApplication1Module._type2BllMap.Add(blInstance.BoType, blInstance);
             //}
 
@@ -69,33 +69,29 @@ namespace DXApplication1.Module
             InitializeComponent();
             BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction;
 
-            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(EC2).Assembly, t => !t.ContainsGenericParameters));
+            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(Policy).Assembly, t => !t.ContainsGenericParameters));
 
-            //var x = new PersistentClasses2Bl(new PCRepository());
-            //var y = new PC3Bl(new PCRepository());
+            //var x = new PolicyBl(new DBRepository());
+            //var y = new PC3Bl(new DBRepository());
             //DSEntityBase.OnObjectCreated += DSPersistentBase_OnObjectCreated;
 
-            //var result = typeof(BllBase<>).Assembly
+            //var result = typeof(BlBase<>).Assembly
             //    .GetTypes()
             //    .Where(t => t.BaseType != null && t.BaseType.IsGenericType &&
-            //                t.BaseType.GetGenericTypeDefinition() == typeof(BllBase<>)
+            //                t.BaseType.GetGenericTypeDefinition() == typeof(BlBase<>)
             //    );
 
-            var result = typeof(BllBase<>).Assembly
+            var result = typeof(BlBase<>).Assembly
                 .GetTypes()
-                //.Select(t => t.IsSubclassOf(typeof(IBllBase)))
-                //.Where(t => t != null)
-
-                //.Where(t => t.IsSubclassOf(typeof(IBllBase)))
-                .Where(t => t.ParentTypes().Any(p => p.IsGenericType && p.GetGenericTypeDefinition() == typeof(BllBase<>)))
-                //.Select(t => new { t, pt = t.ParentTypes(), pt2 = t.ParentTypes().Any(p => p.IsGenericType && p.GetGenericTypeDefinition() == typeof(BllBase<>)) }
-                //.Where(t => t.BaseType != null &&// t.BaseType.IsGenericType &&
-                //            t.BaseType.IsSubclassOf(typeof(BllBase<>))
-                ;
+                .Where(t => t.ParentTypes().Any(p => p.IsGenericType && p.GetGenericTypeDefinition() == typeof(BlBase<>)));
 
             foreach (var type in result)
             {
-                var blInstance = (IBllBase)Activator.CreateInstance(type, new PCRepository());
+                //var constructedType = typeof(DBRepository<>).MakeGenericType(type);
+
+                //var x = Activator.CreateInstance(constructedType, new object[] { });
+
+                var blInstance = (IBllBase)Activator.CreateInstance(type);
                 _type2BllMap.Add(blInstance.BoType, blInstance);
             }
         }
@@ -122,9 +118,9 @@ namespace DXApplication1.Module
             base.CustomizeTypesInfo(typesInfo);
             CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
 
-            typesInfo.FindTypeInfo(typeof(EC2)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(Ec2Child)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(PC3)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(Policy)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(PolicyChld)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(Client)).AddAttribute(new DefaultClassOptionsAttribute());
         }
     }
 }

@@ -2,12 +2,9 @@
 using MySolution.Api.App_Start;
 using Ninject;
 using Ninject.Web.Common;
-using Ninject.Web.WebApi;
 using RepoServices;
 using System;
-using System.Configuration;
 using System.Web;
-using System.Web.Http;
 using BLL;
 using ApiViewModelMapper;
 
@@ -45,12 +42,15 @@ namespace MySolution.Api.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
-            //var connectionString = ConfigurationManager.ConnectionStrings["MySolutionObjectContext"].ConnectionString;
-
-            //kernel.Bind<MyDbContext>().ToSelf().WithConstructorArgument("connectionString", connectionString); ;
             kernel.Bind<IApiMapper>().To<ApiMapper>();
-            kernel.Bind<IPersistentClasses2Bl>().To<PersistentClasses2Bl>();
-            kernel.Bind<IPCRepository>().To<PCRepository>();
+            kernel.Bind<IPolicyBl>().To<PolicyBl>();
+            kernel.Bind(typeof(IRepositoryID<>)).To(typeof(DBRepository<>));
+
+            //foreach (var type in typeof(DBRepository<>).Assembly.GetTypes().Where(x => x.IsClass))
+            //{
+            //    foreach (var @interface in type.GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRepositoryID<>)))
+            //        kernel.Bind(@interface).To(type);
+            //}
         }
     }
 }

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepoServices", "RepoService
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiViewModelMapper", "ApiViewModelMapper\ApiViewModelMapper.csproj", "{B1CCB2D1-C99F-4EB4-A666-3F001FD15854}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.Specs", "BLL.Specs\BLL.Specs.csproj", "{98A970B9-B0B1-43A8-9525-10E3E3AADD26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,12 @@ Global
 		{B1CCB2D1-C99F-4EB4-A666-3F001FD15854}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{B1CCB2D1-C99F-4EB4-A666-3F001FD15854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1CCB2D1-C99F-4EB4-A666-3F001FD15854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A970B9-B0B1-43A8-9525-10E3E3AADD26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A970B9-B0B1-43A8-9525-10E3E3AADD26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A970B9-B0B1-43A8-9525-10E3E3AADD26}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{98A970B9-B0B1-43A8-9525-10E3E3AADD26}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{98A970B9-B0B1-43A8-9525-10E3E3AADD26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A970B9-B0B1-43A8-9525-10E3E3AADD26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

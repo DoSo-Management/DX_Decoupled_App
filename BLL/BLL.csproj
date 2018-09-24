@@ -40,13 +40,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BllBase.cs" />
-    <Compile Include="IPCRepository.cs" />
-    <Compile Include="IPersistentClasses2Bl.cs" />
-    <Compile Include="PC3Bl.cs" />
-    <Compile Include="PersistentClasses2Bl.cs" />
-    <Compile Include="PersistentClasses2ChildBl.cs" />
-    <Compile Include="PersistentClasses3Bl.cs" />
+    <Compile Include="BlBase.cs" />
+    <Compile Include="PolicyChildBl.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IPolicyBl.cs" />
+    <Compile Include="PolicyBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
