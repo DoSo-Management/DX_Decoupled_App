@@ -5,8 +5,8 @@ using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using Shouldly;
 using Xunit;
-// ReSharper disable InconsistentNaming
 
+// ReSharper disable InconsistentNaming
 namespace BLL.Specs
 {
     public class PolicyBl_tests
