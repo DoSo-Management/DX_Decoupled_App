@@ -11,6 +11,7 @@ namespace DAL.BusinessObjects
         public decimal SumInsured { get; set; }
         public decimal Rate { get; set; }
         public Currency Currency { get; set; }
+        public Client Client { get; set; }
 
         decimal _premium;
         public decimal Premium

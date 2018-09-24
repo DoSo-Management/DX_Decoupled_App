@@ -1,4 +1,5 @@
-﻿using DevExpress.Xpo;
+﻿using System;
+using DevExpress.Xpo;
 
 namespace DAL.BusinessObjects
 {
@@ -7,7 +8,10 @@ namespace DAL.BusinessObjects
     {
         public Client(Session session) : base(session) { }
 
-        public string StringProperty { get; set; }
-        public int IntProperty { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PersonalIdNumber { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int Age => DateTime.Now.Year - DateOfBirth.Year;
     }
 }
