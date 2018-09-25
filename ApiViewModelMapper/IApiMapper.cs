@@ -2,7 +2,7 @@
 
 namespace ApiViewModelMapper
 {
-    public interface IApiMapper
+    public interface IApiService
     {
         TestViewModel GetObjectFromDatabase(int id);
         IEnumerable<TestViewModel> GetAllObjectFromDatabase();

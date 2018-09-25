@@ -1,4 +1,5 @@
-﻿using DAL.BusinessObjects;
+﻿using BLL.Policy;
+using DAL.BusinessObjects;
 
 namespace BLL
 {
@@ -8,12 +9,5 @@ namespace BLL
         public virtual void CalculatePremium(Policy bo) => bo.Premium = CalculatePremiumCore(bo.SumInsured, bo.Rate);
         public virtual bool ValidatePremium(Policy bo) => bo.Premium >= 0;
         public virtual decimal CalculatePremiumCore(decimal sumInsured, decimal rate) => sumInsured * rate;
-
-        public override void OnSaving(Policy bo)
-        {
-            base.OnSaving(bo);
-
-
-        }
     }
 }

@@ -6,9 +6,9 @@ namespace MySolution.Api.Controllers
 {
     public class EmployeesController : ApiController
     {
-        private readonly IApiMapper _employeeRepository;
+        private readonly IApiService _employeeRepository;
 
-        public EmployeesController(IApiMapper employeeRepository)
+        public EmployeesController(IApiService employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }

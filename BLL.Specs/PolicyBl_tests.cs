@@ -51,10 +51,9 @@ namespace BLL.Specs
         public void PolicyPremium_lt_zero_not_allowed()
         {
             // Arrange
-            var policy = new Policy(UnitOfWork);
             // Act
             // Assert
-            Should.Throw<InvalidOperationException>(() => new PolicyPremium(-5, new Currency(UnitOfWork)));
+            PolicyPremium.Create(-5, new Currency(UnitOfWork)).IsFailure.ShouldBeTrue();
         }
 
         [Fact(DisplayName = "ცარიელი Currency და CurrencyName არ არის დასაშვები")]
@@ -63,8 +62,8 @@ namespace BLL.Specs
             // Arrange
             // Act
             // Assert
-            Should.Throw<InvalidOperationException>(() => new PolicyPremium(0, null));
-            Should.Throw<InvalidOperationException>(() => new PolicyPremium(0, new Currency(UnitOfWork) { CurrencyName = null }));
+            PolicyPremium.Create(0, null).IsFailure.ShouldBeTrue();
+            PolicyPremium.Create(0, new Currency(UnitOfWork) { CurrencyName = null }).IsFailure.ShouldBeTrue();
         }
     }
 }

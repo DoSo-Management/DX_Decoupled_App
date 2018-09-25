@@ -7,6 +7,7 @@ using System;
 using System.Web;
 using BLL;
 using ApiViewModelMapper;
+using DevExpress.Xpo;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
@@ -42,7 +43,8 @@ namespace MySolution.Api.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IApiMapper>().To<ApiMapper>();
+            kernel.Bind<UnitOfWork>().ToSelf().InRequestScope();
+            kernel.Bind<IApiService>().To<ApiService>();
             kernel.Bind<IPolicyBl>().To<PolicyBl>();
             kernel.Bind(typeof(IRepositoryID<>)).To(typeof(DBRepository<>));
 

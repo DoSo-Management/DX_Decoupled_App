@@ -20,7 +20,7 @@ namespace DAL.BusinessObjects
             set => SetPropertyValue(nameof(Premium), ref _premium, value);
         }
 
-        public void SetPolicyPremium() => new PolicyPremium(Premium, Currency);
+        public void SetPolicyPremium() => PolicyPremium.Create(Premium, Currency);
         public PolicyPremium PolicyPremium { get; set; }
     }
 
