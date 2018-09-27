@@ -20,6 +20,7 @@ namespace DAL.ValueObjects
         public static Result<PolicyPremium> Create(decimal premium, Currency currency)
         {
             var errorsList = new List<string>();
+
             if (premium < 0)
                 errorsList.Add(PremiumShouldBeMoreThan0);
             if (currency == null)
@@ -36,6 +37,6 @@ namespace DAL.ValueObjects
 
         protected override int GetHashCodeCore() => GetHashCode();
 
-        
+
     }
 }

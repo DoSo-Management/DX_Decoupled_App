@@ -69,7 +69,7 @@ namespace DXApplication1.Module
             InitializeComponent();
             BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction;
 
-            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(Policy).Assembly, t => !t.ContainsGenericParameters));
+            AdditionalExportedTypes.AddRange(ModuleHelper.CollectExportedTypesFromAssembly(typeof(Client).Assembly, t => !t.ContainsGenericParameters));
 
             //var x = new PolicyBl(new DBRepository());
             //var y = new PC3Bl(new DBRepository());
@@ -121,6 +121,7 @@ namespace DXApplication1.Module
             typesInfo.FindTypeInfo(typeof(Policy)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(PolicyChld)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(Client)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(Organization)).AddAttribute(new DefaultClassOptionsAttribute());
         }
     }
 }

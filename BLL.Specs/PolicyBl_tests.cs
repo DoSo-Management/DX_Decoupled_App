@@ -25,10 +25,10 @@ namespace BLL.Specs
             var policy = new Policy(UnitOfWork) { Rate = 2.3m, SumInsured = 100 };
 
             // Act
-            new PolicyBl().CalculatePremium(policy);
+            new PolicyBl().CalculatePremium(policy); 
 
             // Assert
-            policy.Premium.ShouldBe(230);
+            policy.Premium.ShouldBe(460);  
         }
 
         [Theory(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
@@ -38,13 +38,13 @@ namespace BLL.Specs
         public void PolicyBl_CalculatePremium_2(decimal sumInsured, decimal rate, decimal premiumResult)
         {
             // Arrange
-            var policy = new Policy(UnitOfWork) { Rate = rate, SumInsured = sumInsured };
+            var pol = new Policy(UnitOfWork) { Rate = rate, SumInsured = sumInsured };
 
             // Act
-            new PolicyBl().CalculatePremium(policy);
+            new PolicyBl().CalculatePremium(pol);
 
             // Assert
-            policy.Premium.ShouldBe(premiumResult);
+            pol.Premium.ShouldBe(premiumResult);
         }
 
         [Fact(DisplayName = "როდესაც ვქმნით პოლის პრემიას ნულზე ნაკლები პრემია არ უნდა იყოს დასაშვები")]
