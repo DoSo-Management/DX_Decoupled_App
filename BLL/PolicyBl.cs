@@ -12,8 +12,6 @@ namespace BLL
         public override void OnSaving(Policy bo)
         {
             base.OnSaving(bo);
-
-
         }
     }
 }
