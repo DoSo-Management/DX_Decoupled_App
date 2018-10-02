@@ -23,7 +23,17 @@ namespace DXApplication1.Win {
         public DXApplication1WindowsFormsApplication() {
             InitializeComponent();
 			InitializeDefaults();
+
+
         }
+
+        protected override void OnLoggedOn(LogonEventArgs args)
+        {
+            base.OnLoggedOn(args);
+
+            this.Model.Options.UseServerMode = true;
+        }
+
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args) {
             args.ObjectSpaceProviders.Add(new XPObjectSpaceProvider(XPObjectSpaceProvider.GetDataStoreProvider(args.ConnectionString, args.Connection, true), false));
             args.ObjectSpaceProviders.Add(new NonPersistentObjectSpaceProvider(TypesInfo, null));

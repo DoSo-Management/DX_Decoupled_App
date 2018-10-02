@@ -3,8 +3,11 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using AutoMapper;
 using BLL;
 using DAL.BusinessObjects;
+using DevExpress.ExpressApp.Security.Strategy;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.Updating;
@@ -122,6 +125,26 @@ namespace DXApplication1.Module
             typesInfo.FindTypeInfo(typeof(PolicyChld)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(Client)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(Organization)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(DoSoUser2)).AddAttribute(new DefaultClassOptionsAttribute());
+
+            //var createdBy = typesInfo.FindTypeInfo(typeof(Client)).FindMember(nameof(Client.CreatedBy2));
+            //Client.GetCreatedBy
+
+            //createdBy.MemberType = typeof(SecuritySystemUser);
+
+            //Mapper.Initialize(cfg => cfg.CreateMap<Policy, Policy2>());
+
+            //createdBy.AddAttribute(new NonPersistentAttribute());
+            //createdBy.AddAttribute(new PersistentAliasAttribute("CreatedBy2.Oid"));
+
+            //Type type = typeof(Client);
+            //PropertyInfo prop = type.GetProperty("CreatedBy");
+            //prop.PropertyType = typeof(Client);
+            
+            //var createdBy2 = typesInfo.FindTypeInfo(typeof(Client)).CreateMember("CreatedBy2", typeof(Guid));
+            //createdBy2.AddAttribute(new PersistentAttribute(nameof(Client.CreatedBy3)));
+
+            Client.OnSavingEvent += client => client.SetMemberValue("CreatedBy3", client.Session.GetObjectByKey<DoSoUser2>(SecuritySystem.CurrentUserId));
         }
     }
 }

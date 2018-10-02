@@ -6,6 +6,8 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Win;
 using DevExpress.Persistent.Base;
+using DevExpress.Xpo;
+using PostgreSqlConnectionProviderEx;
 
 namespace DXApplication1.Win {
     static class Program {
@@ -23,6 +25,10 @@ namespace DXApplication1.Win {
             if(Tracing.GetFileLocationFromSettings() == DevExpress.Persistent.Base.FileLocation.CurrentUserApplicationDataFolder) {
                 Tracing.LocalUserAppDataPath = Application.LocalUserAppDataPath;
             }
+
+            XpoDefault.TrackPropertiesModifications = true;
+            SafePostgreSqlConnectionProvider.Register();
+
             Tracing.Initialize();
             DXApplication1WindowsFormsApplication winApplication = new DXApplication1WindowsFormsApplication();
             // Refer to the https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112680.aspx help article for more details on how to provide a custom splash form.

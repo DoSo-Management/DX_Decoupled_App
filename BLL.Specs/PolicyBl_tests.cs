@@ -28,7 +28,7 @@ namespace BLL.Specs
             new PolicyBl().CalculatePremium(policy); 
 
             // Assert
-            policy.Premium.ShouldBe(460);  
+            policy.Premium.ShouldBe(230);  
         }
 
         [Theory(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]

@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Linq;
 using BLL;
 using DAL.BusinessObjects;
+using DAL.CriteriaOperator;
 using DAL.ValueObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
+using DevExpress.Xpo;
 
 namespace DXApplication1.Module.Controllers
 {
-    public class SampleController : ObjectViewController<ObjectView, Policy>
+    public class SampleController : ObjectViewController<ObjectView, Client>
     {
         public SampleController()
         {
@@ -23,7 +26,7 @@ namespace DXApplication1.Module.Controllers
             singleChoiceAction.Execute += SingleChoiceAction_Execute;
         }
 
-        private void SingleChoiceAction_Execute(object sender, SingleChoiceActionExecuteEventArgs e)
+        void SingleChoiceAction_Execute(object sender, SingleChoiceActionExecuteEventArgs e)
         {
             var bl = ViewCurrentObject.Bl<PolicyBl>();
 
@@ -33,9 +36,23 @@ namespace DXApplication1.Module.Controllers
 
         void ActionOnExecute(object sender, SimpleActionExecuteEventArgs simpleActionExecuteEventArgs)
         {
-            var bl = ViewCurrentObject.Bl<PolicyBl>();
+            try
+            {
+                PolicyEqualsCriteriaOperator.Register();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
 
-            bl.CalculatePremium(ViewCurrentObject);
+            //var filtered = ObjectSpace.FindObject<Client>(ObjectSpace.ParseCriteria("Policy.Number == '36'"));
+
+            var f = ViewCurrentObject.Session.Query<Client>().Where(c => c.PolicyNumberIsEqualTo("DOSO\\pchitashvili")).ToList();
+
+            //var bl = ViewCurrentObject.Bl<PolicyBl>();
+
+            //bl.CalculatePremium(ViewCurrentObject);
         }
     }
 }

@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PostgreSqlConnectionProviderEx;
 
 namespace ApiCore2._1
 {
@@ -29,6 +30,10 @@ namespace ApiCore2._1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            XpoDefault.TrackPropertiesModifications = true;
+            SafePostgreSqlConnectionProvider.Register();
+
             XpoDefault.DataLayer = XpoDefault.GetDataLayer(Configuration.GetConnectionString("DXConnection"), DevExpress.Xpo.DB.AutoCreateOption.None);
 
             services.AddScoped<UnitOfWork>();

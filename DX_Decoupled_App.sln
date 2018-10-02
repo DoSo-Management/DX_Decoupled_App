@@ -21,7 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiViewModelMapper", "ApiVi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.Specs", "BLL.Specs\BLL.Specs.csproj", "{98A970B9-B0B1-43A8-9525-10E3E3AADD26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCore2.1", "ApiCore2.1\ApiCore2.1.csproj", "{BBAB225A-A765-4D0C-93AF-FB05CEFA86D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCore2.1", "ApiCore2.1\ApiCore2.1.csproj", "{BBAB225A-A765-4D0C-93AF-FB05CEFA86D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGProvider", "PGProvider\PGProvider.csproj", "{6EEE4062-4A3F-40C6-9D48-68481484574E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +92,12 @@ Global
 		{BBAB225A-A765-4D0C-93AF-FB05CEFA86D4}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{BBAB225A-A765-4D0C-93AF-FB05CEFA86D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBAB225A-A765-4D0C-93AF-FB05CEFA86D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EEE4062-4A3F-40C6-9D48-68481484574E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EEE4062-4A3F-40C6-9D48-68481484574E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EEE4062-4A3F-40C6-9D48-68481484574E}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{6EEE4062-4A3F-40C6-9D48-68481484574E}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{6EEE4062-4A3F-40C6-9D48-68481484574E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EEE4062-4A3F-40C6-9D48-68481484574E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
