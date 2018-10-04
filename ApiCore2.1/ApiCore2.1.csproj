@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateResourceMSBuildArchitecture>CurrentArchitecture</GenerateResourceMSBuildArchitecture>
+    <GenerateResourceMSBuildRuntime>CurrentRuntime</GenerateResourceMSBuildRuntime>
+  </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
