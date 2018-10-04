@@ -19,7 +19,7 @@ namespace BLL.Specs
         }
 
         [Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
-        public void PolicyBl_CalculatePremium()
+        public void როდესაც_ვითვლით_პოლისის_პრემიას_სადაზღვევო_თანხა_უნდა_გამრავლდეს_რეითზე()
         {
             // Arrange
             var policy = new Policy(UnitOfWork) { Rate = 2.3m, SumInsured = 100 };
