@@ -69,9 +69,7 @@
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="CriteriaOperator\PolicyEqualsCriteriaOperator.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
-    <Compile Include="Module.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Module.cs" />
     <Compile Include="Module.Designer.cs">
       <DependentUpon>Module.cs</DependentUpon>
     </Compile>
@@ -103,6 +101,14 @@
     <Content Include="Welcome.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiClient\ApiClient.csproj">
+      <Project>{f90329e7-76bb-4b2f-a717-84644452fd6d}</Project>
+      <Name>ApiClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApiViewModelMapper\ApiViewModelMapper.csproj">
+      <Project>{B1CCB2D1-C99F-4EB4-A666-3F001FD15854}</Project>
+      <Name>ApiViewModelMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{C7216F2D-84F4-4215-AFD9-5EA70727A126}</Project>
       <Name>BLL</Name>

@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCore2.1", "ApiCore2.1\Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGProvider", "PGProvider\PGProvider.csproj", "{6EEE4062-4A3F-40C6-9D48-68481484574E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{F90329E7-76BB-4B2F-A717-84644452FD6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,12 @@ Global
 		{6EEE4062-4A3F-40C6-9D48-68481484574E}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{6EEE4062-4A3F-40C6-9D48-68481484574E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EEE4062-4A3F-40C6-9D48-68481484574E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90329E7-76BB-4B2F-A717-84644452FD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90329E7-76BB-4B2F-A717-84644452FD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90329E7-76BB-4B2F-A717-84644452FD6D}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{F90329E7-76BB-4B2F-A717-84644452FD6D}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{F90329E7-76BB-4B2F-A717-84644452FD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90329E7-76BB-4B2F-A717-84644452FD6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

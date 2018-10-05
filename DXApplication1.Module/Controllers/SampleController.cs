@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ApiViewModelMapper;
 using BLL;
 using DAL.BusinessObjects;
 using DAL.CriteriaOperator;
@@ -16,6 +17,8 @@ namespace DXApplication1.Module.Controllers
         public SampleController()
         {
             var action = new SimpleAction(this, "SIMPLE_ACTION", PredefinedCategory.View);
+            var actionApi = new SimpleAction(this, "API_CALL", PredefinedCategory.View);
+            actionApi.Execute += ActionApi_Execute;
             action.Execute += ActionOnExecute;
 
             var singleChoiceAction = new SingleChoiceAction(this, "SINGLE_CHOICE_ACTION", PredefinedCategory.View);
@@ -24,6 +27,24 @@ namespace DXApplication1.Module.Controllers
             singleChoiceAction.Items.Add(new ChoiceActionItem("Item3", "Item3"));
 
             singleChoiceAction.Execute += SingleChoiceAction_Execute;
+        }
+
+        private async void ActionApi_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var client = new ApiClient.ApiClient();
+            
+            var model = new TestViewModel
+            {
+                ID = 778899,
+                OID = 0,
+                SumInsured = 150
+            };
+
+            var res = await client.PostDataToApi(model);
+
+            var data = await client.GetDataFromApi();
+
+            var single = await client.GetDataByIdFromApi(4);
         }
 
         void SingleChoiceAction_Execute(object sender, SingleChoiceActionExecuteEventArgs e)
