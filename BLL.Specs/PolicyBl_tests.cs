@@ -20,7 +20,8 @@ namespace BLL.Specs
             UnitOfWork = new UnitOfWork();
         }
 
-        [Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
+        //[Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
+        [Fact]
         public void PolicyBl_CalculatePremium_ქართული_ტექსტი_123()
         {
             // Arrange
