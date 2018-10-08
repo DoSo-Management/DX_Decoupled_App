@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using DAL.BusinessObjects;
 using DAL.ValueObjects;
 using DevExpress.Xpo;
@@ -14,12 +15,13 @@ namespace BLL.Specs
         public readonly UnitOfWork UnitOfWork;
         public PolicyBl_tests()
         {
+            //Console.OutputEncoding = Encoding.UTF8;
             XpoDefault.DataLayer = new SimpleDataLayer(new InMemoryDataStore());
             UnitOfWork = new UnitOfWork();
         }
 
         [Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
-        public void როდესაც_ვითვლით_პოლისის_პრემიას_სადაზღვევო_თანხა_უნდა_გამრავლდეს_რეითზე()
+        public void PolicyBl_CalculatePremium_ქართული_ტექსტი_123()
         {
             // Arrange
             var policy = new Policy(UnitOfWork) { Rate = 2.3m, SumInsured = 100 };
