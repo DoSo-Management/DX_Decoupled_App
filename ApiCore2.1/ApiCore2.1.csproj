@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Data" Version="18.1.3" />
+    <PackageReference Include="DevExpress.Xpo" Version="18.1.3" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.WindowsServices" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
@@ -30,15 +32,6 @@
     <ProjectReference Include="..\BLL\BLL.csproj" />
     <ProjectReference Include="..\PGProvider\PGProvider.csproj" />
     <ProjectReference Include="..\RepoServices\RepoServices.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="DevExpress.Data.v18.1">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 18.1\Components\Bin\Framework\DevExpress.Data.v18.1.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpo.v18.1">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 18.1\Components\Bin\Framework\DevExpress.Xpo.v18.1.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
