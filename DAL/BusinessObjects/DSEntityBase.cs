@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 
 namespace DAL.BusinessObjects
 {
@@ -37,7 +39,7 @@ namespace DAL.BusinessObjects
         //public Guid CreatedByOid { get; set; }
 
         //public DoSoUser2 CreatedBy { get; set; }
-        
+
 
         public DSEntityBaseNoUser(Session session) : base(session) { }
 
@@ -55,7 +57,7 @@ namespace DAL.BusinessObjects
             OnChangedEvent?.Invoke((T)this, propertyName, oldValue, newValue);
         }
     }
-    
+
     [Persistent("public.SecuritySystemUser")]
     public class DoSoUser2 : DSEntityBaseNoUser<DoSoUser2, Guid>
     {

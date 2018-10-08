@@ -126,6 +126,7 @@ namespace DXApplication1.Module
             typesInfo.FindTypeInfo(typeof(Client)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(Organization)).AddAttribute(new DefaultClassOptionsAttribute());
             typesInfo.FindTypeInfo(typeof(DoSoUser2)).AddAttribute(new DefaultClassOptionsAttribute());
+            typesInfo.FindTypeInfo(typeof(testp)).AddAttribute(new DefaultClassOptionsAttribute());
 
             //var createdBy = typesInfo.FindTypeInfo(typeof(Client)).FindMember(nameof(Client.CreatedBy2));
             //Client.GetCreatedBy
