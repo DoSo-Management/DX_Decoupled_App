@@ -3,8 +3,8 @@ using DAL.BusinessObjects;
 using DAL.ValueObjects;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
+using NUnit.Framework;
 using Shouldly;
-using Xunit;
 
 // ReSharper disable InconsistentNaming
 namespace BLL.Specs
@@ -18,7 +18,7 @@ namespace BLL.Specs
             UnitOfWork = new UnitOfWork();
         }
 
-        [Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
+        [Test(Description = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
         public void როდესაც_ვითვლით_პოლისის_პრემიას_სადაზღვევო_თანხა_უნდა_გამრავლდეს_რეითზე()
         {
             // Arrange
@@ -31,10 +31,10 @@ namespace BLL.Specs
             policy.Premium.ShouldBe(230);  
         }
 
-        [Theory(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
-        [InlineData(10, 5, 50)]
-        [InlineData(10, 0, 0)]
-        [InlineData(.1, 50, 5)]
+        [Test(Description = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
+        [TestCase(10, 5, 50)]
+        [TestCase(10, 0, 0)]
+        [TestCase(.1, 50, 5)]
         public void PolicyBl_CalculatePremium_2(decimal sumInsured, decimal rate, decimal premiumResult)
         {
             // Arrange
@@ -47,7 +47,7 @@ namespace BLL.Specs
             pol.Premium.ShouldBe(premiumResult);
         }
 
-        [Fact(DisplayName = "როდესაც ვქმნით პოლის პრემიას ნულზე ნაკლები პრემია არ უნდა იყოს დასაშვები")]
+        [Test(Description = "როდესაც ვქმნით პოლის პრემიას ნულზე ნაკლები პრემია არ უნდა იყოს დასაშვები")]
         public void PolicyPremium_lt_zero_not_allowed()
         {
             // Arrange
@@ -56,7 +56,7 @@ namespace BLL.Specs
             PolicyPremium.Create(-5, new Currency(UnitOfWork)).IsFailure.ShouldBeTrue();
         }
 
-        [Fact(DisplayName = "ცარიელი Currency და CurrencyName არ არის დასაშვები")]
+        [Test(Description = "ცარიელი Currency და CurrencyName არ არის დასაშვები")]
         public void PolicyPremium_empty_currency_not_allowed()
         {
             // Arrange

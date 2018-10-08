@@ -5,7 +5,6 @@ using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using NUnit.Framework;
 using Shouldly;
-using Xunit;
 
 // ReSharper disable InconsistentNaming
 namespace BLL.Specs
