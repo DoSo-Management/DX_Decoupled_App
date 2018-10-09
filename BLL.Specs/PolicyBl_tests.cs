@@ -67,7 +67,7 @@ namespace BLL.Specs
             PolicyPremium.Create(0, null).IsValid.ShouldBeFalse();
             PolicyPremium.Create(0, new Currency(UnitOfWork) { CurrencyName = null }).IsValid.ShouldBeFalse();
 
-            PolicyPremium.Create(0, null).ShouldBe(null);
+            //PolicyPremium.Create(0, null).ShouldBe(null);
         }
     }
 }

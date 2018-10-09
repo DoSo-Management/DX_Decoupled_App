@@ -1,4 +1,5 @@
-﻿using DAL.ValueObjects;
+﻿using System.Collections.Generic;
+using DAL.ValueObjects;
 using DevExpress.Xpo;
 
 namespace DAL.BusinessObjects
@@ -6,13 +7,6 @@ namespace DAL.BusinessObjects
     public class Policy : DSEntityBase<Policy>
     {
         public Policy(Session session) : base(session) { }
-
-        protected override void OnLoaded()
-        {
-            base.OnLoaded();
-
-            PPremium = PolicyPremium.Create(Premium, Currency);
-        }
 
         public string Number { get; set; }
         public decimal SumInsured { get; set; }
@@ -32,11 +26,16 @@ namespace DAL.BusinessObjects
         {
             base.OnChanged(propertyName, oldValue, newValue);
 
-            if (propertyName != nameof(PPremium))
-                PPremium = PolicyPremium.Create(Premium, Currency);
+            if (propertyName != nameof(Premium) && propertyName != nameof(Currency)) return;
         }
 
-        public void SetPolicyPremium() => PolicyPremium.Create(Premium, Currency);
+        public override IEnumerable<string> ValueObjectNames => new[] { nameof(Premium), nameof(Currency) };
+
+        public override void SetValueObjects()
+        {
+            PPremium = PolicyPremium.Create(Premium, Currency);
+            ClearAndAddValueObject(PPremium);
+        }
     }
 
 

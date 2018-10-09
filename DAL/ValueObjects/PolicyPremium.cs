@@ -29,7 +29,7 @@ namespace DAL.ValueObjects
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
-            yield return Currency.CurrencyName?.ToUpper();
+            yield return Currency?.CurrencyName?.ToUpper();
             yield return Premium;
         }
     }

@@ -8,7 +8,7 @@ namespace DAL.ValueObjects
     {
         protected abstract IEnumerable<object> GetEqualityComponents();
 
-        public bool IsValid { get; private set; }
+        public bool IsValid { get; private set; } = true;
         //protected void MakeInvalid() => IsValid = false;
         //protected void MakeValid() => IsValid = true;
 
