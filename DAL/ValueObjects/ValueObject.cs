@@ -1,25 +1,54 @@
-﻿namespace DAL.ValueObjects
-{
-    public abstract class ValueObject<T> where T : ValueObject<T>
-    {
-        public override bool Equals(object obj)
-        {
-            if (!(obj is T valueObject))
-                return false;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-            return GetType() == obj.GetType() && EqualsCore(valueObject);
+namespace DAL.ValueObjects
+{
+    public abstract class ValueObject
+    {
+        protected abstract IEnumerable<object> GetEqualityComponents();
+
+        public bool IsValid { get; private set; }
+        //protected void MakeInvalid() => IsValid = false;
+        //protected void MakeValid() => IsValid = true;
+
+        protected void AddInvalidReason(bool condition, string reason)
+        {
+            if (!condition) return;
+            InvalidReasons.Add(reason);
+            IsValid = false;
         }
 
-        protected abstract bool EqualsCore(T other);
+        public List<string> InvalidReasons = new List<string>();
+
+        public override string ToString() => $"{{ ==[{GetType().Name}]==\r\n-{string.Join(";\r\n-", InvalidReasons)};\r\n}}";
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (GetType() != obj.GetType())
+                throw new ArgumentException($"Invalid comparison of Value Objects of different types: {GetType()} and {obj.GetType()}");
+
+            var valueObject = (ValueObject)obj;
+
+            return GetEqualityComponents().SequenceEqual(valueObject.GetEqualityComponents());
+        }
 
         public override int GetHashCode()
         {
-            return GetHashCodeCore();
+            return GetEqualityComponents()
+                .Aggregate(1, (current, obj) =>
+                {
+                    unchecked
+                    {
+                        return current * 23 + (obj?.GetHashCode() ?? 0);
+                    }
+                });
         }
 
-        protected abstract int GetHashCodeCore();
-
-        public static bool operator ==(ValueObject<T> a, ValueObject<T> b)
+        public static bool operator ==(ValueObject a, ValueObject b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
                 return true;
@@ -30,9 +59,6 @@
             return a.Equals(b);
         }
 
-        public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
-        {
-            return !(a == b);
-        }
+        public static bool operator !=(ValueObject a, ValueObject b) => !(a == b);
     }
 }

@@ -20,8 +20,7 @@ namespace BLL.Specs
             UnitOfWork = new UnitOfWork();
         }
 
-        //[Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
-        [Fact]
+        [Fact(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
         public void PolicyBl_CalculatePremium_ქართული_ტექსტი_123()
         {
             // Arrange
@@ -56,7 +55,7 @@ namespace BLL.Specs
             // Arrange
             // Act
             // Assert
-            PolicyPremium.Create(-5, new Currency(UnitOfWork)).IsFailure.ShouldBeTrue();
+            PolicyPremium.Create(-5, new Currency(UnitOfWork)).IsValid.ShouldBeFalse();
         }
 
         [Fact(DisplayName = "ცარიელი Currency და CurrencyName არ არის დასაშვები")]
@@ -65,8 +64,10 @@ namespace BLL.Specs
             // Arrange
             // Act
             // Assert
-            PolicyPremium.Create(0, null).IsFailure.ShouldBeTrue();
-            PolicyPremium.Create(0, new Currency(UnitOfWork) { CurrencyName = null }).IsFailure.ShouldBeTrue();
+            PolicyPremium.Create(0, null).IsValid.ShouldBeFalse();
+            PolicyPremium.Create(0, new Currency(UnitOfWork) { CurrencyName = null }).IsValid.ShouldBeFalse();
+
+            PolicyPremium.Create(0, null).ShouldBe(null);
         }
     }
 }
