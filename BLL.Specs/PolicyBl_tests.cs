@@ -89,7 +89,7 @@ namespace BLL.Specs
                 );
         }
 
-        [Fact(DisplayName = "ორი განსხვავებული არავალიდური PolicyPremium -არ- უნდა იყოს ტოლი")]
+        [Fact(DisplayName = "ორი განსხვავებული არავალიდური PolicyPremium **არ** *უნდა* იყოს ტოლი")]
         public void PolicyPremiums_should_be_equal_even_with_invalid()
         {
             // Arrange
