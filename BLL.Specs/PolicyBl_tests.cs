@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using DAL.BusinessObjects;
+﻿using DAL.BusinessObjects;
 using DAL.ValueObjects;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
@@ -15,7 +13,6 @@ namespace BLL.Specs
         public readonly UnitOfWork UnitOfWork;
         public PolicyBl_tests()
         {
-            //Console.OutputEncoding = Encoding.UTF8;
             XpoDefault.DataLayer = new SimpleDataLayer(new InMemoryDataStore());
             UnitOfWork = new UnitOfWork();
         }
@@ -27,10 +24,10 @@ namespace BLL.Specs
             var policy = new Policy(UnitOfWork) { Rate = 2.3m, SumInsured = 100 };
 
             // Act
-            new PolicyBl().CalculatePremium(policy); 
+            new PolicyBl().CalculatePremium(policy);
 
             // Assert
-            policy.Premium.ShouldBe(230);  
+            policy.Premium.ShouldBe(230);
         }
 
         [Theory(DisplayName = "როდესაც ვითვლით პოლისის პრემიას, სადაზღვევო თანხა უნდა გამრავლდეს რეითზე")]
@@ -66,8 +63,42 @@ namespace BLL.Specs
             // Assert
             PolicyPremium.Create(0, null).IsValid.ShouldBeFalse();
             PolicyPremium.Create(0, new Currency(UnitOfWork) { CurrencyName = null }).IsValid.ShouldBeFalse();
+        }
 
-            //PolicyPremium.Create(0, null).ShouldBe(null);
+        [Fact(DisplayName = "ორი ერთნაირი PolicyPremium უნდა იყოს ტოლი")]
+        public void PolicyPremiums_should_be_equal()
+        {
+            // Arrange
+            // Act
+            // Assert
+            PolicyPremium.Create(10, new Currency(UnitOfWork) { CurrencyName = "TEST" })
+                .ShouldBe(
+            PolicyPremium.Create(10, new Currency(UnitOfWork) { CurrencyName = "TEST" })
+                         );
+        }
+
+        [Fact(DisplayName = "ორი სხვანაირი PolicyPremium -არ- უნდა იყოს ტოლი")]
+        public void different_PolicyPremiums_should_NOT_be_equal()
+        {
+            // Arrange
+            // Act
+            // Assert
+            PolicyPremium.Create(1, new Currency(UnitOfWork) { CurrencyName = "TEST" })
+                .ShouldNotBe(
+            PolicyPremium.Create(10, new Currency(UnitOfWork) { CurrencyName = "TEST" })
+                );
+        }
+
+        [Fact(DisplayName = "ორი ერთნაირი PolicyPremium უნდა იყოს ტოლი")]
+        public void PolicyPremiums_should_be_equal_even_with_invalid()
+        {
+            // Arrange
+            // Act
+            // Assert
+            PolicyPremium.Create(-10, new Currency(UnitOfWork) { CurrencyName = "TEST" })
+                .ShouldNotBe(
+            PolicyPremium.Create(-1, new Currency(UnitOfWork) { CurrencyName = "TEST" })
+                );
         }
     }
 }
