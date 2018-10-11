@@ -22,13 +22,6 @@ namespace DAL.BusinessObjects
         }
         public PolicyPremium PPremium { get; set; }
 
-        protected override void OnChanged(string propertyName, object oldValue, object newValue)
-        {
-            base.OnChanged(propertyName, oldValue, newValue);
-
-            if (propertyName != nameof(Premium) && propertyName != nameof(Currency)) return;
-        }
-
         public override IEnumerable<string> ValueObjectNames => new[] { nameof(Premium), nameof(Currency) };
 
         public override void SetValueObjects()
