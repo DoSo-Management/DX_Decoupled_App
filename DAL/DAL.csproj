@@ -37,6 +37,7 @@
     <Reference Include="CSharpFunctionalExtensions, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CSharpFunctionalExtensions.1.10.0\lib\net461\CSharpFunctionalExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,10 +46,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DSDefaultClassOptionsAttribute.cs" />
     <Compile Include="BusinessObjects\DSEntityBase.cs" />
     <Compile Include="BusinessObjects\Policy.cs" />
     <Compile Include="BusinessObjects\PolicyChld.cs" />
     <Compile Include="BusinessObjects\Client.cs" />
+    <Compile Include="BusinessObjects\Schedule.cs" />
     <Compile Include="ValueObjects\PolicyPremium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />

@@ -4,6 +4,7 @@ using DevExpress.Xpo;
 
 namespace DAL.BusinessObjects
 {
+    [DSტრუხა]
     public class Policy : DSEntityBase<Policy>
     {
         public Policy(Session session) : base(session) { }
@@ -12,6 +13,7 @@ namespace DAL.BusinessObjects
         public decimal SumInsured { get; set; }
         public decimal Rate { get; set; }
         public Currency Currency { get; set; }
+        [Association]
         public Client Client { get; set; }
 
         decimal _premium;
@@ -20,6 +22,10 @@ namespace DAL.BusinessObjects
             get => _premium;
             set => SetPropertyValue(nameof(Premium), ref _premium, value);
         }
+
+        [Association]
+        public XPCollection<Schedule> SchedulesCollection => GetCollection<Schedule>(nameof(SchedulesCollection));
+
         public PolicyPremium PPremium { get; set; }
 
         public override IEnumerable<string> ValueObjectNames => new[] { nameof(Premium), nameof(Currency) };

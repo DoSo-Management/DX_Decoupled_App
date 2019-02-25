@@ -121,11 +121,17 @@ namespace DXApplication1.Module
             base.CustomizeTypesInfo(typesInfo);
             CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
 
-            typesInfo.FindTypeInfo(typeof(Policy)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(PolicyChld)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(Client)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(Organization)).AddAttribute(new DefaultClassOptionsAttribute());
-            typesInfo.FindTypeInfo(typeof(DoSoUser2)).AddAttribute(new DefaultClassOptionsAttribute());
+            var dsDefaultClassOptionsTypes = 
+                typesInfo.PersistentTypes.Where(t => t.Attributes.Any(a => a.GetType().Name.StartsWith("DS")));
+
+            foreach (var dsDefaultClassOptionsType in dsDefaultClassOptionsTypes)
+            { dsDefaultClassOptionsType.AddAttribute(new DefaultClassOptionsAttribute()); }
+
+            //typesInfo.FindTypeInfo(typeof(Policy)).AddAttribute(new DSDefaultClassOptionsAttribute());
+            //typesInfo.FindTypeInfo(typeof(PolicyChld)).AddAttribute(new DSDefaultClassOptionsAttribute());
+            //typesInfo.FindTypeInfo(typeof(Client)).AddAttribute(new DSDefaultClassOptionsAttribute());
+            //typesInfo.FindTypeInfo(typeof(Organization)).AddAttribute(new DSDefaultClassOptionsAttribute());
+            //typesInfo.FindTypeInfo(typeof(DoSoUser2)).AddAttribute(new DSDefaultClassOptionsAttribute());
 
             //var createdBy = typesInfo.FindTypeInfo(typeof(Client)).FindMember(nameof(Client.CreatedBy2));
             //Client.GetCreatedBy
@@ -140,7 +146,7 @@ namespace DXApplication1.Module
             //Type type = typeof(Client);
             //PropertyInfo prop = type.GetProperty("CreatedBy");
             //prop.PropertyType = typeof(Client);
-            
+
             //var createdBy2 = typesInfo.FindTypeInfo(typeof(Client)).CreateMember("CreatedBy2", typeof(Guid));
             //createdBy2.AddAttribute(new PersistentAttribute(nameof(Client.CreatedBy3)));
 
