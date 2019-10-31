@@ -43,4 +43,18 @@ namespace DAL.BusinessObjects
         public Currency(Session session) : base(session) { }
         public string CurrencyName { get; set; }
     }
+
+    public class CurrencyV : ValueObject
+    {
+        public CurrencyV(string currencyName)
+        {
+            CurrencyName = currencyName;
+        }
+
+        public string CurrencyName { get; }
+        protected override IEnumerable<object> GetEqualityComponents()
+        {
+            yield return CurrencyName;
+        }
+    }
 }

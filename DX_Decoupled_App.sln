@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXApplication1.Module", "DXApplication1.Module\DXApplication1.Module.csproj", "{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGProvider", "PGProvider\PGProvider.csproj", "{6EEE4062-4A3F-40C6-9D48-68481484574E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{F90329E7-76BB-4B2F-A717-84644452FD6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.NETStandard", "DAL.NETStandard\DAL.NETStandard.csproj", "{2A8A0582-3425-4072-B303-1E2B9B174EF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +100,12 @@ Global
 		{F90329E7-76BB-4B2F-A717-84644452FD6D}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{F90329E7-76BB-4B2F-A717-84644452FD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F90329E7-76BB-4B2F-A717-84644452FD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A8A0582-3425-4072-B303-1E2B9B174EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8A0582-3425-4072-B303-1E2B9B174EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8A0582-3425-4072-B303-1E2B9B174EF2}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8A0582-3425-4072-B303-1E2B9B174EF2}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{2A8A0582-3425-4072-B303-1E2B9B174EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8A0582-3425-4072-B303-1E2B9B174EF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

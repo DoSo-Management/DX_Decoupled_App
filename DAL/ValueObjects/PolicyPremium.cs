@@ -32,5 +32,7 @@ namespace DAL.ValueObjects
             yield return Currency?.CurrencyName?.ToUpper();
             yield return Premium;
         }
+
+        public override string ToString() => $"{Premium}[{Currency.CurrencyName}]";
     }
 }
