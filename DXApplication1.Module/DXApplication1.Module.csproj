@@ -46,7 +46,9 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="CSharpFunctionalExtensions, Version=1.10.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="CSharpFunctionalExtensions">
+      <HintPath>..\packages\CSharpFunctionalExtensions.2.1.1\lib\net461\CSharpFunctionalExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.ExpressApp.Security.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -121,6 +123,10 @@
     <ProjectReference Include="..\DAL.NETStandard\DAL.NETStandard.csproj">
       <Project>{2a8a0582-3425-4072-b303-1e2b9b174ef2}</Project>
       <Name>DAL.NETStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.NETStandard\Domain.NETStandard.csproj">
+      <Project>{813D93D8-C56E-4811-ACBD-68EAB6AC9980}</Project>
+      <Name>Domain.NETStandard</Name>
     </ProjectReference>
     <ProjectReference Include="..\RepoServices\RepoServices.csproj">
       <Project>{E8851033-51ED-45C6-BC9E-36EA53D0E7B7}</Project>

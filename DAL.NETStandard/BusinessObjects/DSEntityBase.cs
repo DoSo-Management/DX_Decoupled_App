@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using DAL.ValueObjects;
 using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
 
 namespace DAL.BusinessObjects
 {
@@ -37,11 +35,18 @@ namespace DAL.BusinessObjects
     public class DSEntityBaseNoUser<T, TKeyType> : XPLiteObject where T : DSEntityBaseNoUser<T, TKeyType>
     {
         [Key(true)]
-        public TKeyType Oid { get; set; }
+        [GetterSetterIgnoreWeaving]
+        public TKeyType Oid
+        {
+            get => _oid;
+            set => SetPropertyValue(nameof(Oid), ref _oid, value);
+        }
+
         public static event Action<T> OnSavingEvent;
         public static event Action<T, string, object, object> OnChangedEvent;
 
         public List<ValueObject> ValueObjects = new List<ValueObject>();
+        TKeyType _oid;
         public virtual void AddValueObject(ValueObject vo) => ValueObjects.Add(vo);
         public virtual void ClearAndAddValueObject(ValueObject vo)
         {
@@ -60,7 +65,7 @@ namespace DAL.BusinessObjects
 
         public virtual void SetValueObjects() { }
 
-        public bool IsValid => true;// ValueObjects.TrueForAll(o => o.IsValid);
+        public bool IsValid => ValueObjects.TrueForAll(o => o.IsValid);
         public string InvalidReason => string.Join("\r\n", ValueObjects.Select(o => o));
 
         //public Guid CreatedByOid { get; set; }
@@ -85,10 +90,14 @@ namespace DAL.BusinessObjects
         {
             base.OnChanged(propertyName, oldValue, newValue);
 
-            SetValueObjects();
+            //SetValueObjects();
 
             OnChangedEvent?.Invoke((T)this, propertyName, oldValue, newValue);
         }
+    }
+
+    public class GetterSetterIgnoreWeavingAttribute : Attribute
+    {
     }
 
     [Persistent("public.SecuritySystemUser")]

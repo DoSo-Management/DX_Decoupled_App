@@ -60,6 +60,7 @@ namespace DAL.BusinessObjects
 
         public virtual void SetValueObjects() { }
 
+        public bool IsValid => ValueObjects.TrueForAll(o => o.IsValid);
         public bool IsValid => true;// ValueObjects.TrueForAll(o => o.IsValid);
         public string InvalidReason => string.Join("\r\n", ValueObjects.Select(o => o));
 

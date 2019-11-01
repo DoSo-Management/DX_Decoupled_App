@@ -12,7 +12,7 @@ namespace BLL
         {
             base.CalculatePremium(bo);
 
-            bo.Premium = bo.Premium * 4;
+            bo.SetPremium(bo.Premium * 4);
         }
 
         public void CalculatePremium2(Policy bo)

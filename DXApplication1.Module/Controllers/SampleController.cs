@@ -9,6 +9,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using Domain.NETStandard;
 
 namespace DXApplication1.Module.Controllers
 {
@@ -51,7 +52,7 @@ namespace DXApplication1.Module.Controllers
         {
             var bl = ViewCurrentObject.Bl<PolicyBl>();
 
-            var policyPremium = PolicyPremium.Create(15m, new Currency(ViewCurrentObject.Session));
+            var policyPremium = new PolicyPremium(15m, new CurrencyV("empty"));
             throw new Exception(policyPremium.ToString());
         }
 

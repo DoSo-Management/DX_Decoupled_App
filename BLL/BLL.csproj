@@ -48,13 +48,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{8DD4B7E4-EC2C-4C95-A8CE-79D56B333733}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\DAL.NETStandard\DAL.NETStandard.csproj">
+      <Project>{2a8a0582-3425-4072-b303-1e2b9b174ef2}</Project>
+      <Name>DAL.NETStandard</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

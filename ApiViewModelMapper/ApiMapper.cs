@@ -19,7 +19,7 @@ namespace ApiViewModelMapper
         public void GetObjectFromDatabase(TestViewModel viewModel)
         {
             var obj = _eC2Repository.Get(viewModel.ID);
-            obj.Premium = viewModel.ID;
+            obj.SetPremiumAndSumInsured(viewModel.ID, 0);
 
             _iec2Bl.CalculatePremium(obj);
 
@@ -38,8 +38,7 @@ namespace ApiViewModelMapper
         public TestViewModel AddObject(TestViewModel viewModel)
         {
             var obj = _eC2Repository.Create();
-            obj.Premium = viewModel.ID;
-            obj.SumInsured = viewModel.SumInsured;
+            obj.SetPremiumAndSumInsured(viewModel.ID, viewModel.SumInsured);
 
             _eC2Repository.Save(obj);
 
