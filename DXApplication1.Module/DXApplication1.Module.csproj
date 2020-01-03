@@ -73,6 +73,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\Client.cs" />
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="CriteriaOperator\PolicyEqualsCriteriaOperator.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
