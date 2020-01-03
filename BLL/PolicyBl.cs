@@ -2,7 +2,7 @@
 
 namespace BLL
 {
-    // ReSharper disable once InconsistentNaming
+    //ReSharper disable once InconsistentNaming
     public class PolicyBl : BlBase<Policy>, IPolicyBl
     {
         public virtual void CalculatePremium(Policy bo) => bo.SetPremiumAndSumInsured(CalculatePremiumCore(bo.SumInsured, bo.Rate), 0);

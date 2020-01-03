@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using CSharpFunctionalExtensions;
 using DevExpress.Xpo;
 using Domain.NETStandard;
 
 
 namespace DAL.BusinessObjects
 {
+    //public class Policy : PolicyAbstract
+    //{
+    //    public Policy(Session session) : base(session)
+    //    {
+    //    }
+    //}
+
     [DSტრუხა]
+    //[NonPersistent]
     public class Policy : DSEntityBase<Policy>
     {
         protected Policy(Session session) : base(session) { }
@@ -44,34 +50,4 @@ namespace DAL.BusinessObjects
         //    ClearAndAddValueObject(PPremium);
         //}
     }
-
-    public class DoWrapper
-    {
-        public static DoWrapper<T2> Create<T2>(Func<T2> funcT) => new DoWrapper<T2>(funcT);
-    }
-
-    public class DoWrapper<T>
-    {
-        public DoWrapper(Func<T> funcT)
-        {
-            Value = Result.Try(funcT, exception => exception.Message);
-        }
-
-        public Result<T> Value { get; }
-        public override string ToString() =>
-            Value.IsSuccess
-                ? $"S[{Value.Value}]"
-                : $"F[{Value.Error}]";
-    }
-
-    public class Currency : DSEntityBase<Currency>
-    {
-        public Currency(Session session) : base(session) { }
-
-        public string CurrencyName { get; set; }
-        //public DoWrapperContainer
-        public DoWrapper<CurrencyV> CurrencyV => DoWrapper.Create(() => new CurrencyV(CurrencyName));
-    }
-
-    
 }

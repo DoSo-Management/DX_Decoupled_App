@@ -10,5 +10,4 @@ namespace DAL.BusinessObjects
         public string StringProperty2 { get; set; }
         public int IntProperty2 { get; set; }
     }
-
 }

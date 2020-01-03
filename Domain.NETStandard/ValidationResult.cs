@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace Domain.NETStandard
@@ -23,5 +24,20 @@ namespace Domain.NETStandard
         public string Method { get; }
 
         public override string ToString() => $"{(IsValid ? "Y" : "N") }[{Message}-[{Method}]]";
+    }
+
+    public class ValidationResults
+    {
+        public ValidationResults(ValidationResult result) { _results.Add(result); }
+        public ValidationResults Add(ValidationResult result)
+        {
+            _results.Add(result);
+
+            return this;
+        }
+
+        readonly List<ValidationResult> _results = new List<ValidationResult>();
+        public IReadOnlyList<ValidationResult> Results => _results.AsReadOnly();
+
     }
 }
