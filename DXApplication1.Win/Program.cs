@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-
+using DAL.BusinessObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Win;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using Microsoft.Extensions.DependencyInjection;
 using PostgreSqlConnectionProviderEx;
+
+//[assembly: AutoDI.Settings(InitMode = AutoDI.InitMode.ModuleLoad, GenerateRegistrations = false)]
 
 namespace DXApplication1.Win
 {
+    public class Service : IService { }
+
+
     static class Program
     {
         /// <summary>
@@ -19,6 +24,8 @@ namespace DXApplication1.Win
         [STAThread]
         static void Main()
         {
+            //AutoDI.DI.Init();
+
 #if EASYTEST
             DevExpress.ExpressApp.Win.EasyTest.EasyTestRemotingRegistration.Register();
 #endif
@@ -57,7 +64,11 @@ namespace DXApplication1.Win
 #endif
             try
             {
+                //AutoDI.DI.Init();
+
+
                 winApplication.Setup();
+
                 winApplication.Start();
             }
             catch (Exception e)
@@ -68,12 +79,19 @@ namespace DXApplication1.Win
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            
+
         }
 
         private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
         {
-            
+
+        }
+
+        [AutoDI.SetupMethod]
+        public static void Initialize(AutoDI.IApplicationBuilder application)
+        {
+            application.ConfigureServices(services => services.AddAutoDILazySingleton<IService, Service>());
+            //you can also use the standard extension methods provided by the  Microsoft.Extensions.DependencyInjection.Abstractions assembly, but this will limit you to object lifetimes supported there.
         }
     }
 }

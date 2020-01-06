@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>DX_Decoupled_App.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSharpFunctionalExtensions" Version="2.1.1" />
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.2.2" />
     <PackageReference Include="DevExpress.Xpo" Version="19.2.4" />
     <PackageReference Include="DumpExtensions" Version="2.0.0" />
     <PackageReference Include="Fody" Version="6.0.3">

@@ -53,7 +53,7 @@ namespace DXApplication1.Module.Controllers
             var bl = ViewCurrentObject.Bl<PolicyBl>();
 
             var policyPremium = new PolicyPremium(15m, new CurrencyV("empty"));
-            throw new Exception(policyPremium.ToString());
+            //throw new Exception(policyPremium.ToString());
         }
 
         void ActionOnExecute(object sender, SimpleActionExecuteEventArgs simpleActionExecuteEventArgs)
